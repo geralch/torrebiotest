@@ -23,7 +23,9 @@ app.use( (req, res, next)=> {
      console.log(req.body) 
     next();
   }); 
-app.use('/', indexRouter); 
+  app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 app.use('/linkedin', linkedInRouter); 
 app.use("/torrenegra",torrenegra);
 module.exports = app;
